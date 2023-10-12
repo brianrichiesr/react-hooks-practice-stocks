@@ -1,13 +1,14 @@
 import React from "react";
 import Stock from "./Stock";
 
-function PortfolioContainer() {
+function PortfolioContainer({ myPortfolio, handleClick }) {
+  const mappedStocks = myPortfolio.map(stock => {
+    return <Stock key={`portfolio-${stock.id}`} stock={stock} handleClick={handleClick} />
+  })
   return (
     <div>
-      <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      <h2>Stocks</h2>
+      {mappedStocks}
     </div>
   );
 }
